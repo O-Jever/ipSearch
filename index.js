@@ -23,19 +23,13 @@ function readLines(input, findIP) {
 }
 
 function findIP(data) {
-        //dataIP = data.match(/([0-9]{1,3}[\.]){3}[0-9]{1,3}/);
         dataIP = data.match(/(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/g);
         if (dataIP !== null ){
-            //dataIP.replace(/\s/, /\n/);
-            //fs.appendFileSync('./samba.rnd/outT.txt', dataIP + '\n'); 
             fs.appendFileSync('./samba.rnd/output.txt', dataIP + '\n'); 
-            //fs.createWriteStream('outT.txt', dataIP);
-            //console.log('Line: ' + dataIP);
         }
 }
 
 var file = consoleRead.question('Название файла: ');
 
-//var input = fs.createReadStream('./samba.rnd/samba.7.txt');
 var input = fs.createReadStream(file);
 readLines(input, findIP);
